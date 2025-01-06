@@ -105,21 +105,7 @@ lvgl:
                     entity_id: light.bedroom_lights
               - logger.log:
                   format: "Button pressed"
-        - button:
-            id: relay1_btn
-            align: CENTER
-            width: 200
-            height: 70
-            y: 70
-            checkable: true
-            widgets:
-              - label:
-                  align: CENTER
-                  text: 'Relay1'
-            on_click:
-              - switch.toggle: relay1
-              - logger.log:
-                  format: "Relay Button pressed"
+
                                     
 
 
