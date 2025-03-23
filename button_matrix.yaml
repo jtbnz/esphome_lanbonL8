@@ -9,6 +9,10 @@ i2c:
   sda: GPIO4
   scl: GPIO0
 
+psram: # Enable PSRAM Needed for 2025.2 onwards
+  mode: octal
+  speed: 80MHz
+  
 display:
   - platform: ili9xxx
     model: ST7789V
@@ -84,39 +88,9 @@ lvgl:
       - logger.log: "LVGL is idle"
       - light.turn_off: backlight
       - lvgl.pause:
-  pages:
-    - id: main_page
-      widgets:
-        - buttonmatrix:
-            x: 5
-            y: 40
-            width: 230
-            items:
-              pressed:
-                bg_color: 0xFFFF00
-            id: matrix_id
-            rows:
-              - buttons:
-                - id: light_btn
-                  control:
-                    checkable: true
-                  text: 'Lights'
-                  on_click:
-                    - homeassistant.action:
-                        action: light.toggle
-                        data:
-                          entity_id: light.bedroom_lights
-                    - logger.log:
-                        format: "Button pressed"
-              - buttons:
-                - id: relay1_btn
-                  control:
-                    checkable: true
-                  text: 'Relay1'
-                  on_click:
-                  - switch.toggle: relay1
-                  - logger.log:
-                      format: "Relay Button pressed"
+
+        
+        
 
 
 
